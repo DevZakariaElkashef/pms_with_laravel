@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoriesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,13 +19,8 @@ Route::get('/', function () {
 })->name('home');
 
 
-Route::get('/categories', function(){
-    return view('categories.index');
-})->name('categories.index');
+Route::resource('/categories', CategoriesController::class);
 
-Route::get('/categories/create', function(){
-    return view('categories.add');
-})->name('categories.create');
 
 
 // Route::view('/cat', 'categories.index');

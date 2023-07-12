@@ -195,7 +195,7 @@
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false" style="position: fixed">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item menu-open">
@@ -227,10 +227,17 @@
       </nav>
       <!-- /.sidebar-menu -->
     </div>
+  
     <!-- /.sidebar -->
   </aside>
 
-  @yield('content')
+  <div class="container">
+    <div class="row">
+      @yield('content')
+
+    </div>
+
+  </div>
   
   <footer class="main-footer">
     <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
