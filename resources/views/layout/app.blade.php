@@ -157,16 +157,21 @@
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-          <i class="fas fa-expand-arrows-alt"></i>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#" role="button">
-          <i class="fas fa-th-large"></i>
-        </a>
-      </li>
+      {{-- @auth
+        @endauth --}}
+        
+        @guest
+        <a href="{{ route('login') }}">Login</a>
+        @else
+        <a href="#" onclick="$('#logoutForm').submit()">Logout</a>
+      @endguest
+
+
+      <form id="logoutForm" action="{{ route('logout') }}" method="post">
+      @csrf
+
+      </form>
+     
     </ul>
   </nav>
   <!-- /.navbar -->
@@ -198,6 +203,30 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false" style="position: fixed">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+          <li class="nav-item menu-open">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                users
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('users.index') }}" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('users.create') }}" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
           <li class="nav-item menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>

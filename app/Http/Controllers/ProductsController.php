@@ -7,6 +7,7 @@ use App\Http\Requests\ProductRequest;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductsController extends Controller
 {
@@ -39,7 +40,15 @@ class ProductsController extends Controller
     {
         $data = $request->validated();
 
-        Product::create($data);
+        $product = Product::make($data);
+
+        $path = $request->file('image')->storeAs('products', 'product' . $request->name . $request->file('image')->getClientOriginalName());
+        // $path = Storage::put()
+        // $path = Storage::disk('local')->put('products', $request->image);
+
+        $product->image = $path;
+        
+        $product->save();
 
         return back();
     }

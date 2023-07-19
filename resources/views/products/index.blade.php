@@ -8,6 +8,7 @@
     <thead>
       <tr>
         <th scope="col">#</th>
+        <th scope="col">Image</th>
         <th scope="col">Category</th>
         <th scope="col">product</th>
         <th scope="col">Price</th>
@@ -18,9 +19,10 @@
       @forelse ($products as $product)
       <tr>
         <th scope="row">{{ $loop->iteration }}</th>
+        <td> <img src="{{ asset($product->image) }}" style="max-width: 70px" alt=""> </td>
         <td>{{ $product->category->name }}</td>
         <td>{{ $product->name }}</td>
-        <td>{{ $product->price }}</td>
+        <td>{{ $product->price }} $</td>
         <td>
           <a href="{{ route('products.edit', $product) }}" class="btn btn-sm btn-primary">Edit</a>
           <a href="#" onclick="$('#deleteProduct{{ $product->id }}').submit()" class="btn btn-sm btn-danger">Delete</a>

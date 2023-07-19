@@ -10,20 +10,14 @@
       </tr>
     </thead>
     <tbody>
-      @forelse ($categories as $category)
+      @forelse ($users as $user)
       <tr>
         <th scope="row">{{ $loop->iteration }}</th>
-        <td>{{ $category->name }}</td>
+        <td>{{ $user->name }}</td>
         <td>
-          @can('handel-categories')
-          {{-- @if(Auth::user()->role == 'admin') --}}
-            <a href="{{ route('categories.edit', $category) }}" class="btn btn-sm btn-primary">Edit</a>
-            <a href="#" onclick="$('#deleteCategory{{ $category->id }}').submit()" class="btn btn-sm btn-danger">Delete</a>
-
-          @endcan
-
-
-          <form id="deleteCategory{{ $category->id }}" action="{{ route('categories.destroy', $category) }}" method="post">
+          <a href="{{ route('users.edit', $user) }}" class="btn btn-sm btn-primary">Edit</a>
+          <a href="#" onclick="$('#deleteCategory{{ $user->id }}').submit()" class="btn btn-sm btn-danger">Delete</a>
+          <form id="deleteCategory{{ $user->id }}" action="{{ route('categories.destroy', $user) }}" method="post">
             @csrf
           @method('DELETE')
           </form>
