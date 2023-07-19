@@ -31,7 +31,9 @@
         </td>
       </tr>
       @empty
-          <p>empty</p>
+      <tr>
+        <th scope="row" colspan="5" class="text-center text-muted"><h2>Empty ..!</h2></th>
+      </tr>
       @endforelse
       
     </tbody>

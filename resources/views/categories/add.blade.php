@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container">
-    <div class="row justify-content-end">
+    <div class="">
         <form method="post" action="{{ route('categories.store') }}">
             @csrf
             <div class="mb-3">
