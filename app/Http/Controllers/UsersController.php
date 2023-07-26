@@ -15,7 +15,7 @@ class UsersController extends Controller
     {
         $users = User::all();
 
-        return view('users.index', [
+        return view('dashboard.users.index', [
             'users' => $users
         ]);
     }

@@ -11,7 +11,7 @@ class CartController extends Controller
     public function index()
     {
         $cart = session()->get('cart');
-        return view('cart.index', compact('cart'));
+        return view('front.cart', compact('cart'));
     }
 
     public function add($id)
@@ -64,6 +64,8 @@ class CartController extends Controller
             session()->put('cart', $cart);
             session()->flash('success', 'Cart updated successfully');
         }
+
+        return back();
     }
 
     public function remove($id)

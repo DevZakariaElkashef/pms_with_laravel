@@ -13,6 +13,9 @@
     <!-- Glide js -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.core.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.theme.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/css/bootstrap.min.css" integrity="sha512-Z/def5z5u2aR89OuzYcxmDJ0Bnd5V1cKqBEbvLOiUNWdg9PQeXVvXLI90SE4QOHGlfLqUnDNVAYyZi8UwUTmWQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js" integrity="sha512-fHY2UiQlipUq0dEabSM4s+phmn+bcxSYzXP4vAXItBvBHU7zAM/mkhCZjtBEIJexhOMzZbgFlPLuErlJF2b+0g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- Custom StyleSheet -->
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}" />
     <title>ecommerce Website</title>
@@ -62,9 +65,9 @@
               <i class="bx bx-heart"></i>
               <span class="d-flex">0</span>
             </div>
-            <a href="#" class="icon">
+            <a href="{{ route('cart.index') }}" class="icon">
               <i class="bx bx-cart"></i>
-              <span class="d-flex">0</span>
+              <span class="d-flex">{{ count(session()->get('cart')) }}</span>
             </a>
           </li>
           </ul>
@@ -205,6 +208,7 @@
     </div> --}}
   
     </body>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/glide.min.js"></script>
     <script src="{{ asset('js/slider.js') }}"></script>
     <script src="{{ asset('js/index.js') }}"></script>

@@ -17,7 +17,7 @@ class ProductsController extends Controller
     public function index()
     {
         $products = Product::latest()->paginate(5);
-        return view('products.index', [
+        return view('dashboard.products.index', [
             'products' => $products
         ]);
     }
@@ -28,7 +28,7 @@ class ProductsController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('products.add', [
+        return view('dashboard.products.add', [
             'categories' => $categories
         ]);
     }

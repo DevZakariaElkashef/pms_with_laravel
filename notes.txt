@@ -1,0 +1,17 @@
+composer view// 
+add products to cart // 
+show product page // 
+login page for front //
+login page for dashboard //
+seprate routes //
+--------
+what is next ! //
+uploade to server  //
+
+
+
+oop
+mvc
+design pattern in php
+design pattern in laravel
+advanced laravel 

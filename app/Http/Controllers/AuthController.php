@@ -50,7 +50,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             // Authentication passed...
-            return to_route('home')
+            return to_route('home');
         } else {
             return back();
         }

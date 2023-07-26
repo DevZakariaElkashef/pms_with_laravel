@@ -4,24 +4,23 @@
     <!-- Categories Section -->
     <section class="section category">
       <div class="cat-center">
+        @forelse ($categories as $category)
+          
         <div class="cat">
           <img src="{{ asset('images/cat3.jpg') }}" alt="" />
           <div>
-            <p>WOMEN'S WEAR</p>
+            <p>{{ $category->name }}</p>
           </div>
         </div>
+        
+        @empty
         <div class="cat">
-          <img src="{{ asset('images/cat2.jpg') }}" alt="" />
+          {{-- <img src="{{ asset('images/cat3.jpg') }}" alt="" /> --}}
           <div>
-            <p>ACCESSORIES</p>
+            <p>Empty</p>
           </div>
         </div>
-        <div class="cat">
-          <img src="{{ asset('images/cat1.jpg') }}" alt="" />
-          <div>
-            <p>MEN'S WEAR</p>
-          </div>
-        </div>
+        @endforelse
       </div>
     </section>
 
@@ -33,146 +32,31 @@
       </div>
 
       <div class="product-center">
-        <div class="product-item">
-          <div class="overlay">
-            <a href="#" class="product-thumb">
-              <img src="{{ asset('images/product-1.jpg') }}" alt="" />
-            </a>
-          </div>
-          <div class="product-info">
-            <span>MEN'S CLOTHES</span>
-            <a href="#">Quis Nostrud Exercitation</a>
-            <h4>$700</h4>
-          </div>
-          <ul class="icons">
-            <li><i class="bx bx-heart"></i></li>
-            <li><i class="bx bx-search"></i></li>
-            <li><i class="bx bx-cart"></i></li>
-          </ul>
-        </div>
-        <div class="product-item">
-          <div class="overlay">
-            <a href="" class="product-thumb">
-              <img src="{{ asset('images/product-3.jpg') }}" alt="" />
-            </a>
-            <span class="discount">50%</span>
-          </div>
 
-          <div class="product-info">
-            <span>MEN'S CLOTHES</span>
-            <a href="">Sonata White Men’s Shirt</a>
-            <h4>$800</h4>
-          </div>
-          <ul class="icons">
-            <li><i class="bx bx-heart"></i></li>
-            <li><i class="bx bx-search"></i></li>
-            <li><i class="bx bx-cart"></i></li>
-          </ul>
-        </div>
+        @forelse ($products as $product)
+          
         <div class="product-item">
           <div class="overlay">
-            <a href="" class="product-thumb">
-              <img src="{{ asset('images/product-2.jpg') }}" alt="" />
+            <a href="{{ route('product.show', $product->id) }}" class="product-thumb">
+              <img src="{{ Storage::url($product->image) }}" alt="" />
             </a>
           </div>
           <div class="product-info">
-            <span>MEN'S CLOTHES</span>
-            <a href="">Concepts Solid Pink Men’s Polo</a>
-            <h4>$150</h4>
+            <span>{{ $product->category->name }}</span>
+            <a href="{{ route('product.show', $product->id) }}">{{ $product->name }}</a>
+            <h4>${{ $product->price }}</h4>
           </div>
           <ul class="icons">
-            <li><i class="bx bx-heart"></i></li>
-            <li><i class="bx bx-search"></i></li>
-            <li><i class="bx bx-cart"></i></li>
-          </ul>
-        </div>
-        <div class="product-item">
-          <div class="overlay">
-            <a href="" class="product-thumb">
-              <img src="{{ asset('images/product-4.jpg') }}" alt="" />
             </a>
-            <span class="discount">50%</span>
-          </div>
-          <div class="product-info">
-            <span>MEN'S CLOTHES</span>
-            <a href="">Edor do eiusmod tempor</a>
-            <h4>$900</h4>
-          </div>
-          <ul class="icons">
-            <li><i class="bx bx-heart"></i></li>
-            <li><i class="bx bx-search"></i></li>
-            <li><i class="bx bx-cart"></i></li>
+              <li><a href="{{ route('product.show', $product->id) }}"><i class="bx bx-heart"></i></a></li>
+              <li><i class="bx bx-search"></i></li>
+              <li><i class="bx bx-cart"></i></li>
           </ul>
         </div>
-        <div class="product-item">
-          <div class="overlay">
-            <a href="" class="product-thumb">
-              <img src="./images/product-5.jpg" alt="" />
-            </a>
-          </div>
-          <div class="product-info">
-            <span>MEN'S CLOTHES</span>
-            <a href="">Edor do eiusmod tempor</a>
-            <h4>$100</h4>
-          </div>
-          <ul class="icons">
-            <li><i class="bx bx-heart"></i></li>
-            <li><i class="bx bx-search"></i></li>
-            <li><i class="bx bx-cart"></i></li>
-          </ul>
-        </div>
-        <div class="product-item">
-          <div class="overlay">
-            <a href="" class="product-thumb">
-              <img src="./images/product-6.jpg" alt="" />
-            </a>
-          </div>
-          <div class="product-info">
-            <span>MEN'S CLOTHES</span>
-            <a href="">Edor do eiusmod tempor</a>
-            <h4>$500</h4>
-          </div>
-          <ul class="icons">
-            <li><i class="bx bx-heart"></i></li>
-            <li><i class="bx bx-search"></i></li>
-            <li><i class="bx bx-cart"></i></li>
-          </ul>
-        </div>
-        <div class="product-item">
-          <div class="overlay">
-            <a href="" class="product-thumb">
-              <img src="./images/product-7.jpg" alt="" />
-            </a>
-            <span class="discount">50%</span>
-          </div>
-          <div class="product-info">
-            <span>MEN'S CLOTHES</span>
-            <a href="">Edor do eiusmod tempor</a>
-            <h4>$200</h4>
-          </div>
-          <ul class="icons">
-            <li><i class="bx bx-heart"></i></li>
-            <li><i class="bx bx-search"></i></li>
-            <li><i class="bx bx-cart"></i></li>
-          </ul>
-        </div>
-        <div class="product-item">
-          <div class="overlay">
-            <a href="" class="product-thumb">
-              <img src="./images/product-2.jpg" alt="" />
-            </a>
-          </div>
-          <div class="product-info">
-            <span>MEN'S CLOTHES</span>
-            <a href="">Edor do eiusmod tempor</a>
-            <h4>$560</h4>
-          </div>
-          <ul class="icons">
-            <li><i class="bx bx-heart"></i></li>
-            <li><i class="bx bx-search"></i></li>
-            <li><i class="bx bx-cart"></i></li>
-          </ul>
-        </div>
+       
+        @empty
+          Empty ...
+        @endforelse
       </div>
     </section>
 

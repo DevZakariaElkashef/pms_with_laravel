@@ -16,7 +16,7 @@ class CategoriesController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return view('categories.index', [
+        return view('dashboard.categories.index', [
             'categories' => $categories
         ]);
     }
@@ -26,7 +26,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return view('categories.add');
+        return view('dashboard.categories.add');
     }
 
     /**
